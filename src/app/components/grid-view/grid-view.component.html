@@ -1,0 +1,76 @@
+<!--<link rel="stylesheet" href="grid-view.component.css">-->
+
+
+<div *ngIf="contentToViewGrid.length <= 0" class="empty-list">
+      No available resources
+</div>
+
+
+
+<div class="wrapper"  >
+
+
+
+
+
+  <div *ngFor="let content of contentToViewGrid" style="word-wrap: break-word" >
+
+
+    <a href="#modalDialogForFile" >
+  <div style="width: 110px; height: auto" class="card"  title="Click for options" (click)="viewOfResource(content)">
+    <div class="my-card-img">
+      <img [src]="getFileIcon(content.url)" alt="Avatar" style="width: 80px; height: 80px; margin-top: 8px">
+    </div>
+    <hr class="style10" >
+    <div class="container">{{content.displayName}}</div>
+  </div>
+    </a>
+
+</div>
+
+  <!--<div style="width: 110px; height: 110px" class="card">-->
+    <!--<img src="./assets/hisP.png" alt="Avatar" style="width:100%">-->
+    <!--<div class="container">jhllkjsldk</div>-->
+  <!--</div>-->
+  <!--<div style="width: 110px; height: 110px" class="card">-->
+    <!--<div class="container">jhllkjsldk</div>-->
+  <!--</div>-->
+
+  <!--<div style="width: 110px; height: 110px" class="card">-->
+    <!--<div class="container">jhllkjsldk</div>-->
+  <!--</div>-->
+
+  <!--<div style="width: 110px; height: 110px" class="card">-->
+    <!--<div class="container">jhllkdk</div>-->
+  <!--</div>-->
+
+
+
+
+
+
+  <!--<div style="width: 110px; height: 110px" class="card" >-->
+    <!--<div class="container">jhllkjsldk</div>-->
+  <!--</div>-->
+
+  <!--<div style="width: 110px; height: 110px" class="card">-->
+    <!--<div class="container">jhllkjsldk</div>-->
+  <!--</div>-->
+  <!--<div style="width: 110px; height: 110px" class="card">-->
+    <!--<div class="container">jhllkjsldk</div>-->
+  <!--</div>-->
+
+  <!--<div style="width: 110px; height: 110px" class="card">-->
+    <!--<div class="container">jhllkjsldk</div>-->
+  <!--</div>-->
+
+  <!--<div style="width: 110px; height: 110px" class="card">-->
+    <!--<div class="container">jhllkjsldk</div>-->
+  <!--</div>-->
+
+
+
+</div>
+
+
+

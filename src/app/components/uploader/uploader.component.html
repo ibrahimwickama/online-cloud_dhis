@@ -1,0 +1,92 @@
+<!--<link rel="stylesheet" href="uploader.component.css">-->
+
+
+<!--<div class="container-fluid" >-->
+
+  <div  class="myContainer" >
+    <div class="well well-sm" style="background-color: #e5e5e5">
+      <strong>Create new resource</strong>
+    </div>
+
+    <label class="label-as-card">
+      This object will be created with public edit and view rights
+    </label>
+
+    <div>
+      Details
+    </div>
+
+    <form method="post" enctype="multipart/form-data" >
+
+
+
+    <table class="my-table">
+      <tr> <td>Name <span style="color: red">*</span>&nbsp;&nbsp;</td>
+        <!--[value]="fileInfo.fileName"-->
+        <td> <input type="text" class="form-control" name="fileName" id="fileName"  [(ngModel)]="fileName" (input)="gettingName($event)" ></td>
+      </tr>
+
+      <tr> <td>Type &nbsp;&nbsp;</td>
+        <td> &nbsp;&nbsp;<select type="text" class="form-control"  [(ngModel)]="uploadType"  (input)="listenUploadType($event)"  >
+          <option value="false">Upload file</option>
+          <option value="true">External URL</option>
+        </select>
+        </td>
+      </tr>
+
+      <tr  *ngIf="uploadType" >
+        <td>Attachment &nbsp;&nbsp;</td>
+        <td> &nbsp;<input type="checkbox" value="true" name="attachment"  [(ngModel)]="isAttached"></td>
+      </tr>
+
+      <tr *ngIf="uploadType" >
+        <td>File <span style="color: red">*</span> &nbsp;</td>
+        <td> <input type="file" name="upload" id="upload"
+                    (change)="getFileValue($event)"
+                    ngModel formenctype="multipart/form-data" ></td>
+      </tr>
+
+
+      <tr *ngIf="!uploadType" style="margin-top: 20px; padding: 20px">
+        <td>Url &nbsp;&nbsp;</td>
+        <td>
+          <input type="text" class="form-control" name="link" id="link" value="http://"  [(ngModel)]="fileUrl" >
+        </td>
+      </tr>
+
+
+      <!--<tr> <td><input type="submit" name="submit" value="Save"> &nbsp;&nbsp; &nbsp;&nbsp;</td>-->
+      <!--<td> <input type="button" name="Cancel" value="Cancel"></td>-->
+      <!--</tr>-->
+    </table>
+
+
+
+    <!--<table class="my-table">-->
+    <!--<tbody>-->
+    <!--<tr> <td><button type="button" class="btn btn-primary btn-sm">Save</button> &nbsp;&nbsp; &nbsp;</td>-->
+    <!--<td> <button type="button" class="btn btn-danger btn-sm">Cancel</button></td>-->
+    <!--</tr></tbody>-->
+    <!--</table>-->
+
+
+
+    <div class="my-table">
+      <tr> <td><button (click)="saveNewResource()" type="button" class="btn btn-primary btn-sm"
+                        [disabled]="!isFileName ">Save</button> &nbsp;&nbsp; &nbsp;</td>
+        <td> <button (click)="doCancel()" type="button" class="btn btn-danger btn-sm">Cancel</button></td>
+      </tr>
+    </div>
+    </form>
+
+    <!--<div class="user-inputs">-->
+    <!--Name <span style="color: red">*</span> <input type="text" class="form-control" style="width: 40%">-->
+    <!--</div>-->
+
+
+  </div>
+
+
+
+
+<!--</div>-->

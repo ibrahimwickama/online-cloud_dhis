@@ -1,0 +1,280 @@
+.myContainer{
+  width: 90%;
+  padding: 2px;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+
+}
+
+.mySearchBox{
+  margin: 20px auto;
+  border-radius: 5px;
+}
+
+.btn-circle {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 25px;
+  line-height: 1.42;
+  border-radius: 30px;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
+  overflow: visible;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+
+.show-uploader{
+  position: fixed;
+  overflow: visible;
+  margin-left: 69%;
+  bottom: 40px;
+  right: 40px;
+  width: 510px;
+
+
+}
+
+
+.modalDialog {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+
+.modalDialog:target {
+  opacity:1;
+  pointer-events: auto;
+}
+
+.modalDialog > div {
+  position: relative;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+
+}
+
+
+.modalDialogHelp{
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none
+}
+
+.modalDialogHelp:target{
+  opacity:1;
+  pointer-events: auto;
+}
+
+.modalDialogHelp > div {
+  width: 400px;
+  position: relative;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+  background: #fff;
+  background: -moz-linear-gradient(#fff, #999);
+  background: -webkit-linear-gradient(#fff, #999);
+  background: -o-linear-gradient(#fff, #999);
+
+}
+
+
+
+
+.modalDialogForFile {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+
+.modalDialogForFile:target {
+  opacity:1;
+  pointer-events: auto;
+}
+
+.modalDialogForFile > div {
+  position: relative;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+
+}
+
+
+
+
+
+.close {
+  background: #00d9ff;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: #00d9ff; }
+
+
+
+.front-label{
+  font-size: 50px;
+  width: 75%;
+  margin-left: 15%;
+  padding: 0px;
+}
+
+.md-divide{
+  background-color: white;
+}
+
+hr.style13 {
+  height: 10px;
+  border: 0;
+  box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+
+
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+
+
+@media (min-width: 200px) and  (max-width: 345px){
+
+  .btn-circle {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 25px;
+    line-height: 1.42;
+    border-radius: 30px;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
+    margin-left: 70%;
+  }
+
+}
+
+@media (min-width: 350px) and (max-width: 700px) {
+
+
+  .btn-circle {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 25px;
+    padding: 6px 0;
+    line-height: 1.42;
+    border-radius: 30px;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
+    margin-left: 78%;
+  }
+
+
+}
+
+@media (min-width: 750px) and (max-width: 950px) {
+
+  .btn-circle {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 25px;
+    padding: 6px 0;
+    line-height: 1.42;
+    border-radius: 30px;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
+    margin-left: 85%;
+  }
+}
+

@@ -1,0 +1,232 @@
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: #fff;
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  margin: 15px;
+  font-size: 15px;
+
+}
+
+.postion-table{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.my-list{
+  padding-bottom: 0px;
+  padding-top: 1px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+
+
+
+.my-md-list:hover {
+  background-color: #ECF0F1;
+}
+
+.listItemicons{
+  margin-left: 91%;
+}
+
+.list-on-card{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+hr.style10 {
+  /*border-top: 1px dotted #8c8b8b;*/
+  /*border-bottom: 1px dotted #fff;*/
+
+  display: block;
+  border-top-width: 1px;
+  border-top-style: solid;
+  margin: 0;
+  margin-top: 5px
+}
+
+.my-md-list{
+  height: 40px;
+  width: 100%;
+  padding-bottom: 0px;
+  margin: 0px;
+}
+
+.my-list-content{
+  /*margin-top: 1px;*/
+  padding-top: 3px;
+  cursor: pointer;
+}
+
+.empty-list{
+  text-align: center;
+  color: #999999;
+  font-size: 50px;
+  width: 90%;
+  margin-left: 5%;
+  padding: 0px;
+
+}
+
+
+
+
+.modalDialogForFile {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+  pointer-events: none;
+}
+
+.modalDialogForFile:target {
+  opacity:1;
+  pointer-events: auto;
+}
+
+.modalDialogForFile > div {
+  position: relative;
+  margin: 10% auto;
+  padding: 5px 20px 13px 20px;
+  border-radius: 10px;
+
+}
+
+
+
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:focus div .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+
+a{
+  color: black;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+tr:hover .dropdown-content{
+  display: block;
+}
+
+
+md-list-item:hover{
+  background-color: #ECF0F1 ;
+}
+
+
+@media (min-width: 200px) and  (max-width: 345px){
+  .listItemicons{
+    margin-left: 40%;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+  }
+}
+
+@media (min-width: 350px) and (max-width: 700px) {
+  .listItemicons{
+    margin-left: 55%;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-left: 50px;
+
+  }
+}
+
+@media (min-width: 750px) and (max-width: 950px) {
+  .listItemicons{
+    margin-left: 75%;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin-left: 100px;
+
+  }
+
+}
+
+
+
+

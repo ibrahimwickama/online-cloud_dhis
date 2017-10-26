@@ -1,0 +1,121 @@
+<!--<link rel="stylesheet" href="uploader.component.css">-->
+
+
+
+<!--<div *ngIf="doEdit"  id="openModal" class="modalDialog">-->
+  <!--<div>-->
+    <!--<app-uploader [fileInfo]="fileToView"></app-uploader>-->
+  <!--</div>-->
+<!--</div>-->
+
+<div class="container-fluid" >
+
+  <div  class="myContainer" >
+    <div class="well well-sm" style="background-color: #e5e5e5">
+      <strong>Resource details</strong>
+    </div>
+
+    <!--<label class="label-as-card">-->
+      <!--This object will be created with public edit and view rights-->
+    <!--</label>-->
+
+    <!--<div>-->
+      <!--Details-->
+    <!--</div>-->
+
+    <!--<form method="post" enctype="multipart/form-data" >-->
+
+
+
+      <table class="my-table">
+        <tr >
+          <td style="width: 160px"><img [src]="getFileIcon(fileToView.url)" style="width: 140px; height: 140px"> </td>
+          <td>&nbsp;&nbsp;
+            <div>
+            <p>{{fileToView.displayName}}</p>
+            <p>Date created <br> {{fileToView.created.split("T")[0]}} </p>
+            <p>Last Updated <br> {{fileToView.lastUpdated.split("T")[0]}} </p>
+            <!--<p>size: </p>-->
+
+            </div>
+          </td>
+        </tr>
+
+        <!--<tr> <td>Attachment &nbsp;&nbsp;</td>-->
+          <!--<td> &nbsp;<input type="checkbox" value="true" name="attachment"  [(ngModel)]="isAttached"></td>-->
+        <!--</tr>-->
+
+        <!--<tr> <td>File <span style="color: red">*</span> &nbsp;</td>-->
+          <!--<td> <input type="file" name="upload" #upload-->
+                      <!--(change)="getFileValue($event)"-->
+                      <!--ngModel ></td>-->
+        <!--</tr>-->
+
+        <!--<tr> <td><input type="submit" name="submit" value="Save"> &nbsp;&nbsp; &nbsp;&nbsp;</td>-->
+        <!--<td> <input type="button" name="Cancel" value="Cancel"></td>-->
+        <!--</tr>-->
+      </table>
+
+    <label>Options</label>
+    <hr class="style7" >
+
+    <tr >
+
+      <td style="width: 9%" >
+        <div id="myDropdown " class="dropdown-content show" style="width: 95%">
+          <a href="'../../../api/documents/{{fileToView.id}}/data" (click)="goViewResource()"  >View resource</a>
+          <hr class="style10" >
+          <a (click)="openSharingSettings()">Sharing settings</a>
+          <hr class="style10" >
+          <a href="#openModal" (click)="editResource()" >Edit</a>
+          <hr class="style10" >
+          <a href="#" (click)="removeResource()" >Remove</a>
+          <hr class="style10" >
+          <a href="#" (click)="cancelDialog()" >cancel</a>
+        </div>
+
+      </td>
+
+
+
+
+    </tr>
+
+
+
+
+    <!--<table class="my-table">-->
+      <!--<tbody>-->
+      <!--<tr> <td><button type="button" class="btn btn-primary btn-sm">Save</button> &nbsp;&nbsp; &nbsp;</td>-->
+      <!--<td> <button type="button" class="btn btn-danger btn-sm">Cancel</button></td>-->
+      <!--</tr></tbody>-->
+      <!--</table>-->
+
+
+
+      <!--<div class="my-table">-->
+        <!--<tr> <td><button (click)="saveNewResource()" type="button" class="btn btn-primary btn-sm">Save</button> &nbsp;&nbsp; &nbsp;</td>-->
+          <!--<td> <button (click)="doCancel()" type="button" class="btn btn-danger btn-sm">Cancel</button></td>-->
+        <!--</tr>-->
+      <!--</div>-->
+    <!--</form>-->
+
+    <!--<div class="user-inputs">-->
+    <!--Name <span style="color: red">*</span> <input type="text" class="form-control" style="width: 40%">-->
+    <!--</div>-->
+
+
+  </div>
+
+
+
+
+</div>
+
+
+
+<!--<div id="myDropdown " class="dropdown-content show">&ndash;&gt;-->
+  <!--<a href="#" (click)="selectedOption()" >Link 1</a>-->
+  <!--<a href="#" (click)="selectedOption()">Link 2</a>-->
+  <!--<a href="#" (click)="selectedOption()" >Link 3</a>-->
+<!--</div>-->

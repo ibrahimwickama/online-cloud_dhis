@@ -1,0 +1,86 @@
+<!--<link rel="stylesheet" href="list-view.component.css">-->
+
+
+
+<div *ngIf="contentToViewList.length <= 0" class="empty-list">
+  No available resources
+</div>
+
+
+<!--<div class="card">-->
+
+  <!--<ul class="my-list" *ngIf="contentToViewList && contentToViewList.length > 0"  >-->
+
+    <!--<div class="my-md-list"  *ngFor="let content of contentToViewList"  >-->
+      <!--<a href="#modalDialogForFile" >-->
+      <!--<div class="my-list-content" title="Click for options" (click)="viewOfResource(content)">-->
+       <!--<span style="height: 32px; width: 32px; margin-top: 2px">-->
+         <!--<img [src]="getFileIcon(content.url)" alt="Avatar" style="width: 32px; height: 32px">-->
+       <!--</span>-->
+        <!--{{content.displayName}}-->
+
+      <!--</div>-->
+      <!--<hr class="style10" >-->
+      <!--</a>-->
+      <!--&lt;!&ndash;<div id="myDropdown " class="dropdown-content {{dropMenu}}">&ndash;&gt;-->
+      <!--&lt;!&ndash;<div id="myDropdown " class="dropdown-content show">&ndash;&gt;-->
+        <!--&lt;!&ndash;<a href="#" (click)="selectedOption()" >Link 1</a>&ndash;&gt;-->
+        <!--&lt;!&ndash;<a href="#" (click)="selectedOption()">Link 2</a>&ndash;&gt;-->
+        <!--&lt;!&ndash;<a href="#" (click)="selectedOption()" >Link 3</a>&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+    <!--</div>-->
+
+    <!--<hr class="style10">-->
+
+
+
+
+    <!--&lt;!&ndash;<div class="my-md-list">&ndash;&gt;-->
+      <!--&lt;!&ndash;<div class="my-list-content">&ndash;&gt;-->
+        <!--&lt;!&ndash;dddsfsdf&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--&lt;!&ndash;&lt;!&ndash;<hr class="style10">&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;<hr class="style10">&ndash;&gt;-->
+
+
+    <!--&lt;!&ndash;<div class="my-md-list">&ndash;&gt;-->
+      <!--&lt;!&ndash;<div class="my-list-content">&ndash;&gt;-->
+        <!--&lt;!&ndash;dddsfsdf&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+      <!--&lt;!&ndash;&lt;!&ndash;<hr class="style10">&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;<hr class="style10">&ndash;&gt;-->
+
+  <!--</ul>-->
+
+<!--</div>-->
+
+
+<div class="card col-md-6 col-md-offset-5 " style="margin: 4% auto; margin-bottom: 0" *ngIf="contentToViewList.length > 0">
+  <table style="width: 100%">
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>LastUpdate</th>
+
+    </tr>
+
+    <tr *ngFor="let content of contentToViewList" class="my-md-list  " >
+      <td><span style="height: 32px; width: 32px; margin-top: 2px">
+        <img [src]="getFileIcon(content.url)" alt="Avatar" style="width: 32px; height: 32px">
+        </span>
+        </td>
+
+       <td >{{content.displayName}}</td>
+      <td>{{content.lastUpdated.split("T")[0]}}</td>
+     </tr>
+    <!--<hr class="style10">-->
+   </table>
+ </div>
+
+
+
+
+
