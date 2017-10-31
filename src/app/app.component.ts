@@ -29,45 +29,16 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     this.checkForContents();
-    //this.getDocs()
+
   }
 
-  // getDocs(){
-  //   this.httpProvider.fetchDocuments().subscribe(resData => {
-  //     let docs = resData
-  //    // console.log("Documents fetch are :"+JSON.stringify(docs));
-  //   })
-  // }
 
   checkForContents(){
-    let url = '../../../api/resources.json';
-    //let content:any;
-    // console.log( " the value "+JSON.stringify(this.http.get(url).mapTo((response: Response) => response.json())))
-
     this.httpProvider.getResourceFiles().subscribe(resData => {
       this.contentToView = this.contentToViewBackUp  = resData.documents;
 
-      // this.contentToView.forEach((fileContent:any)=>{
-      //   this.httpProvider.getResourceFullData(fileContent.id).subscribe(fileData=>{
-      //     this.contentToView2.push(fileData);
-      //   this.contentToViewBackUp2 = this.contentToView2})
-      // })
-
-
     });
-
-    // let content = this.httpProvider.getResourceFiles();
-    //  console.log("the files are :"+this.content)
-    //  content.forEach((document:any)=>{
-    //   console.log(document)
-    //  })
-
   }
-
-
-
-
-
 
   displayView(viewMode){
     if(viewMode == 'list'){
@@ -78,36 +49,25 @@ export class AppComponent implements OnInit{
       this.viewList = false;
     }
 
-    //console.log("the Fetched :"+JSON.stringify(this.contentToView2))
-
   }
 
 
   addOfResource(){
     this.addResource = true;
-    let url = 'localhost:8080/api/resources.json';
-
   }
 
   uploaderDidCancelAction(event){
-    // console.log("value ......for Cancel is "+JSON.stringify(event))
     this.addResource = event;
   }
 
   receivingNewResource(event){
-    // this.contentToView = [];
-
     this.contentToView.push(event);
-    // this.contentToViewBackUp.push(event);
     this.contentToViewBackUp = this.contentToView;
-
   }
 
 
   getFilteredList(ev) {
     let val = ev.target.value;
-    //console.log("event value serch is: "+val)
-
     this.contentToView = this.contentToViewBackUp;
     if(val && val.trim() != ''){
       this.contentToView = this.contentToView.filter((file:any) => {
@@ -140,13 +100,11 @@ export class AppComponent implements OnInit{
     let clonedContent = this.contentToView.slice();
     clonedContent.forEach((content:any)=>{
       if(content == selected){
-
         let index = clonedContent.indexOf(content);
-        // console.log("index :"+JSON.stringify(index))
         clonedContent.splice(index, 1);
         this.contentToView = clonedContent;
         this.contentToViewBackUp = clonedContent;
-        //console.log("to delete :"+JSON.stringify(content))
+
       }
     })
 

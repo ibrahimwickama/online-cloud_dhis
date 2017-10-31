@@ -23,7 +23,7 @@ export class ListViewComponent implements OnInit {
   constructor(private utilService: UtilitiesService) { }
 
   ngOnInit() {
-    // this.contentOnView = ['ibrahim', 'wickama', 'Yusuph'];
+
   }
 
   viewOptions(event){
