@@ -11,6 +11,8 @@ export class ListViewComponent implements OnInit {
 
   @Input() contentToViewList;
   @Output() viewFile = new EventEmitter();
+  @Output() deletefile = new EventEmitter();
+  @Output() editFile = new EventEmitter();
 
   viewResource:any;
   dropMenu:any;
@@ -46,6 +48,27 @@ export class ListViewComponent implements OnInit {
     let link = this.utilService.getResourceIcon(extension);
     return link;
 }
+
+
+
+  goViewResource(){
+    //console.log("file id :"+this.fileToView.id)
+    //this.httpProvider.downloadFile(this.fileToView.id).subscribe();
+  }
+
+  openSharingSettings(){
+
+  }
+
+  editResource(){
+    //this.doEdit = true;
+    //this.editFile.emit(this.fileToView);
+  }
+
+  removeResource(){
+    //this.deletefile.emit(this.fileToView);
+  }
+
 
 
 }

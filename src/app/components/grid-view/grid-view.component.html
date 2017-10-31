@@ -7,70 +7,110 @@
 
 
 
-<div class="wrapper"  >
+<!--<div class="wrapper"  >-->
 
 
 
 
 
-  <div *ngFor="let content of contentToViewGrid" style="word-wrap: break-word" >
+  <!--<div *ngFor="let content of contentToViewGrid" style="word-wrap: break-word" >-->
 
 
-    <a href="#modalDialogForFile" >
-  <div style="width: 110px; height: auto" class="card"  title="Click for options" (click)="viewOfResource(content)">
-    <div class="my-card-img">
-      <img [src]="getFileIcon(content.url)" alt="Avatar" style="width: 80px; height: 80px; margin-top: 8px">
+    <!--<a href="#modalDialogForFile" >-->
+  <!--<div style="width: 110px; height: auto" class="card"  title="Click for options" (click)="viewOfResource(content)">-->
+    <!--<div class="my-card-img">-->
+      <!--<img [src]="getFileIcon(content.url)" alt="Avatar" style="width: 80px; height: 80px; margin-top: 8px">-->
+    <!--</div>-->
+    <!--<hr class="style10" >-->
+
+  <!--</div>-->
+    <!--</a>-->
+
+<!--</div>-->
+
+  <!--&lt;!&ndash;<div style="width: 110px; height: 110px" class="card">&ndash;&gt;-->
+    <!--&lt;!&ndash;<img src="./assets/hisP.png" alt="Avatar" style="width:100%">&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="container">jhllkjsldk</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;<div style="width: 110px; height: 110px" class="card">&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="container">jhllkjsldk</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<div style="width: 110px; height: 110px" class="card">&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="container">jhllkjsldk</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<div style="width: 110px; height: 110px" class="card">&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="container">jhllkdk</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+
+
+
+
+  <!--&lt;!&ndash;<div style="width: 110px; height: 110px" class="card" >&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="container">jhllkjsldk</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<div style="width: 110px; height: 110px" class="card">&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="container">jhllkjsldk</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;<div style="width: 110px; height: 110px" class="card">&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="container">jhllkjsldk</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<div style="width: 110px; height: 110px" class="card">&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="container">jhllkjsldk</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+  <!--&lt;!&ndash;<div style="width: 110px; height: 110px" class="card">&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="container">jhllkjsldk</div>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+
+<!--</div>-->
+
+
+<div class="container-fluid">
+<div class="row ">
+  <div class="col card-holder-grid">
+    <div class="interpretations-columns ">
+      <!--<div class="interpretation-search">-->
+      <!--<input type="text" class="form-control">-->
+      <!--</div>-->
+      <div
+        class="card interpretation-card" *ngFor="let content of contentToViewGrid" >
+        <!--*ngFor="let interpretation of interpretations$ | async"-->
+
+        <div style="background-color: #eeeeee; height: 320px"></div>
+        <hr class="style10" >
+        <div class="row label-row">
+          <td class="option-dots">
+            <img src="./assets/fileTypes/option-dots.png" alt="avatar" style="height: 15px; margin-right: 5px">
+            <div class="dropdown">
+              <!--<button class="dropbtn">Dropdown</button>-->
+              <div class="dropdown-content ">
+                <a href="'../../../api/documents/{{content.id}}/data" >View Resource</a>
+                <a href="#" (click)="openSharingSettings(content)" >Sharing settings</a>
+                <a href="#" (click)="editResource(content)" >Edit</a>
+                <a href="#" (click)="removeResource(content)" >Remove</a>
+              </div>
+            </div>
+          </td>
+
+        <div class="container">{{content.displayName}}</div>&nbsp;&nbsp;
+
+
+        </div>
+      </div>
     </div>
-    <hr class="style10" >
-    <div class="container">{{content.displayName}}</div>
   </div>
-    </a>
+</div>
 
 </div>
 
-  <!--<div style="width: 110px; height: 110px" class="card">-->
-    <!--<img src="./assets/hisP.png" alt="Avatar" style="width:100%">-->
-    <!--<div class="container">jhllkjsldk</div>-->
-  <!--</div>-->
-  <!--<div style="width: 110px; height: 110px" class="card">-->
-    <!--<div class="container">jhllkjsldk</div>-->
-  <!--</div>-->
-
-  <!--<div style="width: 110px; height: 110px" class="card">-->
-    <!--<div class="container">jhllkjsldk</div>-->
-  <!--</div>-->
-
-  <!--<div style="width: 110px; height: 110px" class="card">-->
-    <!--<div class="container">jhllkdk</div>-->
-  <!--</div>-->
-
-
-
-
-
-
-  <!--<div style="width: 110px; height: 110px" class="card" >-->
-    <!--<div class="container">jhllkjsldk</div>-->
-  <!--</div>-->
-
-  <!--<div style="width: 110px; height: 110px" class="card">-->
-    <!--<div class="container">jhllkjsldk</div>-->
-  <!--</div>-->
-  <!--<div style="width: 110px; height: 110px" class="card">-->
-    <!--<div class="container">jhllkjsldk</div>-->
-  <!--</div>-->
-
-  <!--<div style="width: 110px; height: 110px" class="card">-->
-    <!--<div class="container">jhllkjsldk</div>-->
-  <!--</div>-->
-
-  <!--<div style="width: 110px; height: 110px" class="card">-->
-    <!--<div class="container">jhllkjsldk</div>-->
-  <!--</div>-->
-
-
-
-</div>
 
 
 

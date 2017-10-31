@@ -31,6 +31,7 @@ export class UploaderComponent implements OnInit {
   fileResource:any;
   files : any;
   fileUrl:any;
+  fetchedData:any = [];
 
   constructor(private elm: ElementRef,  private httpProvider: HttpProviderService) {
    // elm: ElementRef;
@@ -39,7 +40,15 @@ export class UploaderComponent implements OnInit {
   ngOnInit() {
 
     this.isFileName = false;
+   // this.initiateFiles();
   }
+
+  // initiateFiles(){
+  //   this.httpProvider.pullCurrentFiles().subscribe(response =>{
+  //     this.fetchedData = response.documents;
+  //     console.log("fechedData: "+JSON.stringify(this.fetchedData))
+  //   })
+  // }
 
   doCancel(){
      this.fileInfo = null;
@@ -64,13 +73,18 @@ export class UploaderComponent implements OnInit {
 
   saveNewResource(){
     //console.log("file is: "+this.fileName+ " upload Type is: "+this.uploadType+ " and file is: "+JSON.stringify(this.fileResource))
-    let date = new Date()
+    let date = new Date();
+
+    let day = new Date().getDate();
+    let month = new Date().getMonth();
+    let year = new Date().getFullYear();
+    let fullDate = year+'-'+(month + 1)+'-'+day;
 
     console.log("new Date :"+ date )
     let files = this.elm.nativeElement.querySelector('#upload').files;
     let formData = new FormData();
      let file = files[0];
-     formData.append('upload', file, file.name );
+     formData.append('upload', file );
      formData.append('name',  this.fileName);
      formData.append('id', '');
      formData.append('url', 'http://');
@@ -79,17 +93,17 @@ export class UploaderComponent implements OnInit {
 
      //this.httpProvider.uploadResource(formData).subscribe(response =>{ console.log(response)} )
 
-     console.log("file is :"+formData)
+     console.log("file is :"+JSON.stringify(file))
 
     let fileDetails = {
-      created:'',
-      lastUpdated:'',
+      created:fullDate,
+      lastUpdated:fullDate,
       name: this.fileName,
       href:'',
-      id:'',
+      id: "hKYLLpNicBA",
       displayName: this.fileName,
       publicAccess:'',
-      url:'',
+      url: file.name,
       externalAccess:'',
       external: this.uploadType,
       attachment: this.isAttached,
@@ -119,7 +133,23 @@ export class UploaderComponent implements OnInit {
       //let extension = this.fileName.split(".")[1]
     //alert(extension)
 
-    this.httpProvider.uploadResource(formData).subscribe(response =>{ console.log(response)} );
+    this.fetchedData.push(fileDetails)
+
+    let finaleObj = {documents: this.fetchedData};
+
+    //this.httpProvider.uploadResource(JSON.stringify(fileDetails)).subscribe(response =>{ console.log(response)} );
+
+
+
+    // this.httpProvider.uploadResource(file.name).subscribe(response =>{
+    //   console.log("the pushed goods: "+response)
+    // });
+
+    this.httpProvider.trialUpload(formData).subscribe(response=>{
+      console.log("result from upload :"+response)
+    });
+
+
     // this.httpProvider.tempUploader(formData).subscribe(response =>{ console.log(response)} );
     this.addResourceAction.emit(fileDetails);
     // this.addResourceAction.emit(this.fileName);
@@ -160,6 +190,21 @@ export class UploaderComponent implements OnInit {
 
       this.isFileName = false;
     }
+  }
+
+
+  createDataStoreObjKey() {
+    let formatter = new Intl.DateTimeFormat("fr", { month: "short" }),
+      month = formatter.format(new Date()),
+      text = '',
+      possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+    for (let i = 0; i < 3; i++) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+
+    return month.slice(0, -1).toUpperCase().concat('_', text);
+
   }
 
 

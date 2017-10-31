@@ -9,6 +9,7 @@ import {HttpProviderService} from "./services/http-provider.service";
 export class AppComponent implements OnInit{
 
   viewList:boolean =true;
+  // viewGrid:boolean =true;
   viewGrid:boolean =false;
   addResource:boolean =false;
   viewFile:any;
@@ -28,7 +29,15 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     this.checkForContents();
+    //this.getDocs()
   }
+
+  // getDocs(){
+  //   this.httpProvider.fetchDocuments().subscribe(resData => {
+  //     let docs = resData
+  //    // console.log("Documents fetch are :"+JSON.stringify(docs));
+  //   })
+  // }
 
   checkForContents(){
     let url = '../../../api/resources.json';
@@ -54,6 +63,8 @@ export class AppComponent implements OnInit{
     //  })
 
   }
+
+
 
 
 

@@ -58,8 +58,9 @@
 <!--</div>-->
 
 
-<div class="card col-md-6 col-md-offset-5 " style="margin: 4% auto; margin-bottom: 0" *ngIf="contentToViewList.length > 0">
+<div class="card col-md-6  " style="margin: 4% auto; margin-bottom: 0" *ngIf="contentToViewList.length > 0">
   <table style="width: 100%">
+    <tbody style="width: 100%">
     <tr>
       <th></th>
       <th>Name</th>
@@ -75,8 +76,25 @@
 
        <td >{{content.displayName}}</td>
       <td>{{content.lastUpdated.split("T")[0]}}</td>
+      <td (click)="viewOptions($event)">
+         <span>
+        <img src="./assets/fileTypes/option-dots.png" alt="avatar" style="height: 12px">
+        </span>
+        <div class="dropdown">
+          <!--<button class="dropbtn">Dropdown</button>-->
+          <div class="dropdown-content ">
+            <a href="'../../../api/documents/{{content.id}}/data" >View Resource</a>
+            <a href="#">Sharing settings</a>
+            <a href="#" (click)="editResource(content)" >Edit</a>
+            <a href="#" (click)="removeResource(content)" >Remove</a>
+          </div>
+        </div>
+
+      </td>
      </tr>
+
     <!--<hr class="style10">-->
+    </tbody>
    </table>
  </div>
 

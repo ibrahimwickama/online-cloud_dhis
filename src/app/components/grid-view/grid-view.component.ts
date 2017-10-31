@@ -30,4 +30,18 @@ export class GridViewComponent implements OnInit {
     return link;
   }
 
+  openSharingSettings(){
+
+  }
+
+  editResource(){
+    //this.doEdit = true;
+    //this.editFile.emit(this.fileToView);
+  }
+
+  removeResource(){
+    //this.deletefile.emit(this.fileToView);
+  }
+
+
 }

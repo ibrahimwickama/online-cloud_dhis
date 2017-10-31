@@ -4,8 +4,49 @@
   background-color: #fff;
   transition: 0.3s;
   border-radius: 5px; /* 5px rounded corners */
-  margin: 15px;
+  /*margin: 15px;*/
   font-size: 15px;
+  overflow: visible;
+
+}
+
+.label-row{
+  width: 100%;
+}
+
+.option-dots{
+  margin-left: 15px;
+}
+
+.card-holder-grid{
+
+}
+
+
+.interpretations-columns {
+  -webkit-column-count: 2;
+  column-count: 3;
+  -webkit-column-gap: 1.25rem;
+  column-gap: 1.25rem;
+  margin-left: 20%;
+  margin-right: 20%;
+  height: auto;
+  overflow: visible;
+}
+.interpretations-columns .card,
+.interpretations-columns .interpretation-search {
+  display: inline-block;
+  width: 100%;
+}
+
+.interpretation-search {
+  margin-bottom: 10px;
+  margin-left: 25%;
+}
+
+.interpretation-card {
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .my-card-img{
@@ -22,8 +63,8 @@
 
 /* Add some padding inside the card container */
 .container {
-  padding: 5px;
-  width: 110px;
+  padding: 2px;
+  width: 85%;
   word-wrap: break-word;
 }
 
@@ -79,34 +120,69 @@ a:hover{
   text-decoration: none;
 }
 
-
-.modalDialogForFile {
-  position: fixed;
-  font-family: Arial, Helvetica, sans-serif;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0,0,0,0.8);
-  z-index: 99999;
-  opacity:0;
-  -webkit-transition: opacity 400ms ease-in;
-  -moz-transition: opacity 400ms ease-in;
-  transition: opacity 400ms ease-in;
-  pointer-events: none;
+/* Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }
 
-.modalDialogForFile:target {
-  opacity:1;
-  pointer-events: auto;
-}
-
-.modalDialogForFile > div {
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
   position: relative;
-  margin: 10% auto;
-  padding: 5px 20px 13px 20px;
-  border-radius: 10px;
+  display: block;
+}
 
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  overflow: visible;
+
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  overflow: visible;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:focus div .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+
+a{
+  color: black;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+
+/*.show {display:block;}*/
+td:hover .dropdown-content{
+  display: block;
 }
 
 

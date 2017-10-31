@@ -102,36 +102,43 @@
 
 
   <div class="col-md-4 col-md-offset-5" style="margin-left: 34%">
-    <input type="text" placeholder="Search" class="form-control">
+    <input type="text" placeholder="Search" class="form-control" (input)="getFilteredList($event)">
   </div>
 
-  <div class="myContainer">
+  <div class="btn-group option-view-list">
+    <a (click)="displayView('list')"id="list" class="btn btn-default btn-sm"><img src="../assets/listing-option.png" style="width: 16px;height: 16px">
+      &nbsp;&nbsp;List</a>
+      <a (click)="displayView('grid')" id="grid" class="btn btn-default btn-sm">
+        <img src="../assets/menu.png" style="width: 16px;height: 16px" >&nbsp;&nbsp;Grid</a>
+</div>
 
-  <div *ngIf="viewList">
-    <app-list-view [contentToViewList]="contentToView"
-                   (viewFile)="viewFileInfo($event)"  ></app-list-view>
-  </div>
+<div class="myContainer">
 
-  <div *ngIf="viewGrid">
-    <app-grid-view [contentToViewGrid]="contentToView"
-                   (viewFile)="viewFileInfo($event)"></app-grid-view>
-  </div>
+<div *ngIf="viewList">
+<app-list-view [contentToViewList]="contentToView"
+               (viewFile)="viewFileInfo($event)"  ></app-list-view>
+</div>
 
-  </div>
+<div *ngIf="viewGrid">
+<app-grid-view [contentToViewGrid]="contentToView"
+               (viewFile)="viewFileInfo($event)"></app-grid-view>
+</div>
 
-
-
-  <div *ngIf="addResource" class="show-uploader" >
-    <app-uploader (cancelAction)="uploaderDidCancelAction($event)"
-                  (addResourceAction)="receivingNewResource($event)"
-                  [fileInfo]="editFileInfo"></app-uploader>
-  </div>
-
+</div>
 
 
-  <button class="btn btn-primary btn-circle" title="Add new Resource" (click)="addOfResource()" >
-    <span>+</span>
-  </button>
+
+<div *ngIf="addResource" class="show-uploader" >
+<app-uploader (cancelAction)="uploaderDidCancelAction($event)"
+              (addResourceAction)="receivingNewResource($event)"
+              [fileInfo]="editFileInfo"></app-uploader>
+</div>
+
+
+
+<button class="btn btn-primary btn-circle" title="Add new Resource" (click)="addOfResource()" >
+<span>+</span>
+</button>
 
 
 </div>
