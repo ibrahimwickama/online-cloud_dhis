@@ -1,3 +1,45 @@
-<p>
-  sharing-settings works!
-</p>
+<div  class="myContainer" >
+  <div class="label-as-card" style="background-color: #e5e5e5">
+    <strong>Sharing settings</strong>
+  </div>
+
+
+  <div style="padding-top: 10px; margin-left: 15px">
+    {{fileSettings.displayName}}
+  </div>
+  <div class="btn-group" style="width: 90%; margin-left: 15px;padding-top: 10px;">
+    <input type="text" class="form-control" name="fileName" placeholder="Search for user groups" style="width: 88%">
+    <button class="btn">+</button>
+  </div>
+
+  <div style="padding-top: 10px; margin-left: 15px; color: #9e9e9e">
+    Created by: myUserName
+  </div>
+
+  <div  style="padding-top: 10px; margin-left: 15px;" >
+    External access (without login) &nbsp;&nbsp;
+     &nbsp;<input type="checkbox" value="true" name="attachment"  >
+  </div>
+
+
+  <div class="row" style="padding-top: 10px; margin-left: 15px;" >
+    <div class="col-6">
+      Public access (with login)
+    </div>
+    <select type="text" class="form-control" style="width: 180px"   >
+    <option value="false">None</option>
+    <option value="true">Can view</option>
+    <option value="true">Can edit and view</option>
+    </select>
+  </div>
+
+
+    <div class="my-table">
+      <tr> <td><button  type="button" class="btn btn-primary btn-sm"
+                       [disabled]="!isFileName ">Save</button> &nbsp;&nbsp; &nbsp;</td>
+        <td> <button type="button" class="btn btn-default btn-sm" (click)="doCancel()">Cancel</button></td>
+      </tr>
+    </div>
+
+
+</div>

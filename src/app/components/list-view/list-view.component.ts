@@ -13,6 +13,7 @@ export class ListViewComponent implements OnInit {
   @Output() viewFile = new EventEmitter();
   @Output() deletefile = new EventEmitter();
   @Output() editFile = new EventEmitter();
+  @Output() shareSettings = new EventEmitter();
 
   viewResource:any;
   dropMenu:any;
@@ -56,8 +57,8 @@ export class ListViewComponent implements OnInit {
     //this.httpProvider.downloadFile(this.fileToView.id).subscribe();
   }
 
-  openSharingSettings(){
-
+  doShareSettings(content){
+    this.shareSettings.emit(content)
   }
 
   editResource(file){

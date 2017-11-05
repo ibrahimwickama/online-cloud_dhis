@@ -37,6 +37,15 @@
   width: 510px;
 }
 
+.show-share-settings{
+  position: fixed;
+  overflow: visible;
+  margin-left: 69%;
+  bottom: 40%;
+  right: 40%;
+  width: 510px;
+}
+
 .option-view-list{
   border-radius: 5px;
   background-color: #ECF0F1;

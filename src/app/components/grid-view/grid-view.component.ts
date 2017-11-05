@@ -10,6 +10,8 @@ export class GridViewComponent implements OnInit {
 
   @Input() contentToViewGrid;
   @Output() viewFile = new EventEmitter();
+  @Output() editFile = new EventEmitter();
+  @Output() shareSettings = new EventEmitter();
 
   icon: string;
 
@@ -30,13 +32,12 @@ export class GridViewComponent implements OnInit {
     return link;
   }
 
-  openSharingSettings(){
-
+  doShareSettings(content){
+    this.shareSettings.emit(content)
   }
-
-  editResource(){
+  editResource(file){
     //this.doEdit = true;
-    //this.editFile.emit(this.fileToView);
+    this.editFile.emit(file);
   }
 
   removeResource(){

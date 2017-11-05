@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-sharing-settings',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SharingSettingsComponent implements OnInit {
 
+  @Input() fileSettings;
+  @Output() cancel = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  doCancel(){
+    this.cancel.emit(false);
+  }
+
+
 
 }

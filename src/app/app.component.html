@@ -26,12 +26,16 @@
     <div *ngIf="viewList">
     <app-list-view [contentToViewList]="contentToView"
                    (viewFile)="viewFileInfo($event)"
-                    (editFile)="onEditFile($event)"></app-list-view>
+                    (editFile)="onEditFile($event)"
+                    (shareSettings)="shareSettingInfo($event)"></app-list-view>
     </div>
 
     <div *ngIf="viewGrid">
-    <app-grid-view [contentToViewGrid]="contentToView"
-                   (viewFile)="viewFileInfo($event)"></app-grid-view>
+    <app-grid-view
+      [contentToViewGrid]="contentToView"
+      (viewFile)="viewFileInfo($event)"
+      (shareSettings)="shareSettingInfo($event)"
+      (editFile)="onEditFile($event)"></app-grid-view>
     </div>
 
     </div>
@@ -42,6 +46,14 @@
   <app-uploader (cancelAction)="uploaderDidCancelAction($event)"
                 (addResourceAction)="receivingNewResource($event)"
                 [fileInfo]="editFileInfo"></app-uploader>
+  </div>
+
+
+  <div *ngIf="showShareSettings" class="show-share-settings">
+    <app-sharing-settings
+      [fileSettings]="fileSetting"
+      (cancel)="shareSettingsDidCancel($event)"
+    ></app-sharing-settings>
   </div>
 
 

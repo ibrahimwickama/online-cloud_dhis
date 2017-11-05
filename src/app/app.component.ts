@@ -12,6 +12,7 @@ export class AppComponent implements OnInit{
   // viewGrid:boolean =true;
   viewGrid:boolean =false;
   addResource:boolean =false;
+  showShareSettings:boolean =false;
   viewFile:any;
   viewResource: boolean;
   addButton: boolean = true;
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit{
   dropMenu: any;
   editFileInfo:any;
   content:any = [];
+  fileSetting:any;
 
   constructor(private httpProvider: HttpProviderService){
 
@@ -62,6 +64,15 @@ export class AppComponent implements OnInit{
     this.addResource = event;
     this.editFileInfo = null;
     this.addButton = true;
+  }
+
+  shareSettingInfo(event){
+    this.fileSetting = event;
+    this.showShareSettings = true;
+  }
+
+  shareSettingsDidCancel(event){
+    this.showShareSettings = false;
   }
 
   receivingNewResource(event){
