@@ -30,6 +30,7 @@ export class UploaderComponent implements OnInit {
   files : any;
   fileUrl:any = 'http://';
   fetchedData:any = [];
+  uploding:any;
 
   constructor(private elm: ElementRef,  private httpProvider: HttpProviderService) {
 
@@ -85,7 +86,7 @@ export class UploaderComponent implements OnInit {
     formData.append('name',  this.fileName);
     formData.append('id', '');
     formData.append('url', this.fileUrl);
-    formData.append('external', this.uploadType);
+    formData.append('external', 'true');
      // formData.append('att achment', this.isAttached );
 
 
@@ -132,6 +133,7 @@ export class UploaderComponent implements OnInit {
 
 
   saveNewFileResource(){
+    this.uploding = true;
 
     let day = new Date().getDate();
     let month = new Date().getMonth();
@@ -141,11 +143,11 @@ export class UploaderComponent implements OnInit {
     let files = this.elm.nativeElement.querySelector('#upload').files;
     let formData = new FormData();
      let file = files[0];
-     formData.append('upload', file );
+     formData.append('upload', file , file.name );
      formData.append('name',  this.fileName);
      formData.append('id', '');
      formData.append('url', 'http://');
-     formData.append('external', this.uploadType);
+     formData.append('external', "false" );
      formData.append('attachment', this.isAttached );
 
      console.log("file is :"+JSON.stringify(file))
