@@ -13,7 +13,7 @@
       Details
     </div>
 
-    <form method="post" enctype="multipart/form-data" >
+    <form method="post" id="documentForm" action="saveDocument.action"  enctype="multipart/form-data" >
 
     <table class="my-table">
       <tr> <td>Name <span style="color: red">*</span>&nbsp;&nbsp;</td>
@@ -50,7 +50,7 @@
     </table>
 
     <div class="my-table">
-      <tr> <td><button (click)="uploadTypeOption()" type="button" class="btn btn-primary btn-sm"
+      <tr> <td><button (click)="uploadTypeOption()" type="submit" class="btn btn-primary btn-sm"
                        [disabled]="!isFileName ">Save</button> &nbsp;&nbsp; &nbsp;</td>
         <td> <button (click)="doCancel()" type="button" class="btn btn-danger btn-sm">Cancel</button></td>
       </tr>

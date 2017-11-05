@@ -34,6 +34,14 @@ export class HttpProviderService {
 
   }
 
+  getUserGroups(){
+    let url = '../../../api/userGroups.json';
+     return this.httpProvider.get(url).map((response:Response) =>
+       response.json()
+       // console.log("meme :"+response)
+    )
+  }
+
 
   // getResourceFullData(fileId){
   //   let url = '../../../api/documents/'+fileId+'.json';
@@ -134,7 +142,7 @@ export class HttpProviderService {
       'Host':'play.dhis2.org',
       'Referer':'https://play.dhis2.org/demo/dhis-web-reporting/displayViewDocumentForm.action',
       'Access-Control-Allow-Origin': '*'});
-    fd.append('file', file);
+    //fd.append('file', file);
     this.options = new RequestOptions({ headers: reqstHeadDon });
     return this.httpProvider.post(url4, file, this.options)
       .map(response =>{

@@ -8,9 +8,18 @@
     {{fileSettings.displayName}}
   </div>
   <div class="btn-group" style="width: 90%; margin-left: 15px;padding-top: 10px;">
-    <input type="text" class="form-control" name="fileName" placeholder="Search for user groups" style="width: 88%">
+    <input type="text" class="form-control" name="fileName" (input)="searchEvent($event)" placeholder="Search for user groups" style="width: 88%">
+    <div class="dropdown">
+      <div class="dropdown-content ">
+        <a href="#" >View Resource</a>
+        <a href="#" >Sharing settings</a>
+        <a href="#"  >Edit</a>
+        <a href="#"  >Remove</a>
+      </div>
+    </div>
     <button class="btn">+</button>
   </div>
+
 
   <div style="padding-top: 10px; margin-left: 15px; color: #9e9e9e">
     Created by: myUserName

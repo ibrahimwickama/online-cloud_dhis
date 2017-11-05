@@ -77,12 +77,16 @@ export class UploaderComponent implements OnInit {
     let year = new Date().getFullYear();
     let fullDate = year+'-'+(month + 1)+'-'+day;
 
-    let formData = new FormData();
-    formData.append('upload', '' );
+    //let files = this.elm.nativeElement.querySelector('#upload').files;
+    //let file = files[0];
+    let formData = new FormData()
+
+    formData.append('upload', '', null );
     formData.append('name',  this.fileName);
     formData.append('id', '');
     formData.append('url', this.fileUrl);
     formData.append('external', this.uploadType);
+     // formData.append('att achment', this.isAttached );
 
 
     let fileDetails = {
@@ -118,7 +122,7 @@ export class UploaderComponent implements OnInit {
     };
 
     this.httpProvider.trialUpload(formData).subscribe(response=>{
-      console.log("the response is :"+response);
+      console.log("the  response is :"+response);
     })
 
     this.addResourceAction.emit(fileDetails);
