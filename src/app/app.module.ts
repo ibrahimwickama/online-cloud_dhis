@@ -10,6 +10,7 @@ import {UploaderComponent} from "../app/components/uploader/uploader.component";
 import {ListViewComponent} from "../app/components/list-view/list-view.component";
 import {GridViewComponent} from "../app/components/grid-view/grid-view.component";
 import {FormsModule} from "@angular/forms";
+import { SharingSettingsComponent } from './components/sharing-settings/sharing-settings.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {FormsModule} from "@angular/forms";
     ListViewComponent,
     UploaderComponent,
     FileViewerComponent,
-    AppComponent
+    AppComponent,
+    SharingSettingsComponent
   ],
   imports: [
     BrowserModule, MenuModule, FormsModule

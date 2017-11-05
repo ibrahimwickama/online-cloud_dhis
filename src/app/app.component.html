@@ -21,33 +21,34 @@
         <img src="../assets/menu.png" style="width: 16px;height: 16px" >&nbsp;&nbsp;Grid</a>
 </div>
 
-<div class="myContainer">
+    <div class="myContainer">
 
-<div *ngIf="viewList">
-<app-list-view [contentToViewList]="contentToView"
-               (viewFile)="viewFileInfo($event)"  ></app-list-view>
-</div>
+    <div *ngIf="viewList">
+    <app-list-view [contentToViewList]="contentToView"
+                   (viewFile)="viewFileInfo($event)"
+                    (editFile)="onEditFile($event)"></app-list-view>
+    </div>
 
-<div *ngIf="viewGrid">
-<app-grid-view [contentToViewGrid]="contentToView"
-               (viewFile)="viewFileInfo($event)"></app-grid-view>
-</div>
+    <div *ngIf="viewGrid">
+    <app-grid-view [contentToViewGrid]="contentToView"
+                   (viewFile)="viewFileInfo($event)"></app-grid-view>
+    </div>
 
-</div>
-
-
-
-<div *ngIf="addResource" class="show-uploader" >
-<app-uploader (cancelAction)="uploaderDidCancelAction($event)"
-              (addResourceAction)="receivingNewResource($event)"
-              [fileInfo]="editFileInfo"></app-uploader>
-</div>
+    </div>
 
 
 
-<button class="btn btn-primary btn-circle" title="Add new Resource" (click)="addOfResource()" >
-<span>+</span>
-</button>
+  <div *ngIf="addResource" class="show-uploader" >
+  <app-uploader (cancelAction)="uploaderDidCancelAction($event)"
+                (addResourceAction)="receivingNewResource($event)"
+                [fileInfo]="editFileInfo"></app-uploader>
+  </div>
+
+
+
+    <button *ngIf="addButton" class="btn btn-primary btn-circle" title="Add new Resource" (click)="addOfResource()" >
+    <span>+</span>
+    </button>
 
 
 </div>

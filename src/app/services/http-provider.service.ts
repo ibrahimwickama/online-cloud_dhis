@@ -122,16 +122,23 @@ export class HttpProviderService {
 
 
   trialUpload(file){
+    let url4 = '../../../dhis-web-reporting/saveDocument.action';
     let url = '../../../api/fileResources';
     let fd = new FormData();
     let someHeader = new Headers({'Content-Type': 'multipart/form-data, boundary=----WebKitFormBoundaryAf4FHp6AqgAhmk6A' ,
       'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-    })
+    });
+    let reqstHeadDon = new Headers({
+      'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' ,
+      'Accept-Encoding':'gzip,deflate,br',
+      'Host':'play.dhis2.org',
+      'Referer':'https://play.dhis2.org/demo/dhis-web-reporting/displayViewDocumentForm.action',
+      'Access-Control-Allow-Origin': '*'});
     fd.append('file', file);
-    this.options = new RequestOptions({ headers: someHeader });
-    return this.httpProvider.post(url, file, this.options)
+    this.options = new RequestOptions({ headers: reqstHeadDon });
+    return this.httpProvider.post(url4, file, this.options)
       .map(response =>{
-        console.log("hello the response :"+response)
+        console.log("hello the response  :"+response)
       })
 
 }

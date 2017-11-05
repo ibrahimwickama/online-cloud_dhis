@@ -14,6 +14,7 @@ export class AppComponent implements OnInit{
   addResource:boolean =false;
   viewFile:any;
   viewResource: boolean;
+  addButton: boolean = true;
 
   contentToView:any = [];
   contentToView2:any = [];
@@ -54,10 +55,13 @@ export class AppComponent implements OnInit{
 
   addOfResource(){
     this.addResource = true;
+    this.addButton = false;
   }
 
   uploaderDidCancelAction(event){
     this.addResource = event;
+    this.editFileInfo = null;
+    this.addButton = true;
   }
 
   receivingNewResource(event){

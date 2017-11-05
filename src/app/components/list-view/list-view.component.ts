@@ -60,9 +60,9 @@ export class ListViewComponent implements OnInit {
 
   }
 
-  editResource(){
+  editResource(file){
     //this.doEdit = true;
-    //this.editFile.emit(this.fileToView);
+    this.editFile.emit(file);
   }
 
   removeResource(){

@@ -17,7 +17,7 @@
 
     <table class="my-table">
       <tr> <td>Name <span style="color: red">*</span>&nbsp;&nbsp;</td>
-        <td> <input type="text" class="form-control" name="fileName" id="fileName"  [(ngModel)]="fileName" (input)="gettingName($event)" ></td>
+        <td> <input type="text" class="form-control" name="fileName"   [(ngModel)]="fileName" (input)="gettingName($event)" ></td>
       </tr>
 
       <tr>
@@ -50,8 +50,8 @@
     </table>
 
     <div class="my-table">
-      <tr> <td><button (click)="saveNewResource()" type="button" class="btn btn-primary btn-sm"
-                        [disabled]="!isFileName ">Save</button> &nbsp;&nbsp; &nbsp;</td>
+      <tr> <td><button (click)="uploadTypeOption()" type="button" class="btn btn-primary btn-sm"
+                       [disabled]="!isFileName ">Save</button> &nbsp;&nbsp; &nbsp;</td>
         <td> <button (click)="doCancel()" type="button" class="btn btn-danger btn-sm">Cancel</button></td>
       </tr>
     </div>

@@ -13,6 +13,7 @@
 
     </tr>
 
+
     <tr *ngFor="let content of contentToViewList" class="my-md-list  " >
       <td><span style="height: 32px; width: 32px; margin-top: 2px">
         <img [src]="getFileIcon(content.url)" alt="Avatar" style="width: 32px; height: 32px">
@@ -34,6 +35,14 @@
           </div>
         </div>
       </td>
+      <!--<div class="dropdown">-->
+        <!--<div class="dropdown-content ">-->
+          <!--<a href="'../../../api/documents/{{content.id}}/data" >View Resource</a>-->
+          <!--<a href="#">Sharing settings</a>-->
+          <!--<a href="#" (click)="editResource(content)" >Edit</a>-->
+          <!--<a href="#" (click)="removeResource(content)" >Remove</a>-->
+        <!--</div>-->
+      <!--</div>-->
      </tr>
     </tbody>
    </table>

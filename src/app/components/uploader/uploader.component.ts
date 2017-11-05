@@ -23,7 +23,7 @@ export class UploaderComponent implements OnInit {
   @Output() addResourceAction = new EventEmitter();
 
 
-  fileName:any = ' ';
+  fileName:any;
   uploadType:any = true;
   isAttached:any;
   fileResource:any;
@@ -37,7 +37,9 @@ export class UploaderComponent implements OnInit {
 
   ngOnInit() {
     this.isFileName = false;
+    this.fileName =  (this.fileInfo)?this.fileInfo.displayName: '';
   }
+
 
 
   doCancel(){
@@ -60,16 +62,78 @@ export class UploaderComponent implements OnInit {
   }
 
 
+  uploadTypeOption(){
+    if(this.uploadType){
+      this.saveNewFileResource();
+    }else{
+      this.saveNewLinkToResource();
+    }
+  }
 
-  saveNewResource(){
-    let date = new Date();
+  saveNewLinkToResource(){
 
     let day = new Date().getDate();
     let month = new Date().getMonth();
     let year = new Date().getFullYear();
     let fullDate = year+'-'+(month + 1)+'-'+day;
 
-    console.log("new Date :"+ date )
+    let formData = new FormData();
+    formData.append('upload', '' );
+    formData.append('name',  this.fileName);
+    formData.append('id', '');
+    formData.append('url', this.fileUrl);
+    formData.append('external', this.uploadType);
+
+
+    let fileDetails = {
+      created:fullDate,
+      lastUpdated:fullDate,
+      name: this.fileName,
+      href:'',
+      id: '',
+      displayName: this.fileName,
+      publicAccess:'',
+      url: this.fileUrl,
+      externalAccess:'',
+      external: this.uploadType,
+      attachment: this.isAttached,
+      contentType:'',
+      lastUpdatedBy:{},
+      access:{
+        read:'',
+        update:'',
+        externalize:'',
+        delete: '',
+        write: '',
+        manage: ''
+      },
+      user: {
+        id: ''
+      },
+      userGroupAccesses: [ ],
+      attributeValues: [ ],
+      translations: [ ],
+      userAccesses: [ ]
+
+    };
+
+    this.httpProvider.trialUpload(formData).subscribe(response=>{
+      console.log("the response is :"+response);
+    })
+
+    this.addResourceAction.emit(fileDetails);
+    this.doCancel();
+  }
+
+
+
+  saveNewFileResource(){
+
+    let day = new Date().getDate();
+    let month = new Date().getMonth();
+    let year = new Date().getFullYear();
+    let fullDate = year+'-'+(month + 1)+'-'+day;
+
     let files = this.elm.nativeElement.querySelector('#upload').files;
     let formData = new FormData();
      let file = files[0];
