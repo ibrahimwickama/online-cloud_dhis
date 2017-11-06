@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UtilitiesService} from "../../services/utilities.service";
 import {HttpProviderService} from "../../services/http-provider.service";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-grid-view',
@@ -14,9 +15,16 @@ export class GridViewComponent implements OnInit {
   @Output() editFile = new EventEmitter();
   @Output() shareSettings = new EventEmitter();
 
+  isConnected: Observable<boolean>;
+
   icon: string;
 
-  constructor(private utilService: UtilitiesService, private httpProvider:HttpProviderService) { }
+  constructor(private utilService: UtilitiesService, private httpProvider:HttpProviderService) {
+    this.isConnected = Observable.merge(
+      Observable.of(navigator.onLine),
+      Observable.fromEvent(window, 'online').map(() => true),
+      Observable.fromEvent(window, 'offline').map(() => false));
+  }
 
   ngOnInit() {
   }

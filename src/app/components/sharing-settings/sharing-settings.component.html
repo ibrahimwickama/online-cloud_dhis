@@ -8,21 +8,19 @@
     {{fileSettings.displayName}}
   </div>
   <div class="btn-group" style="width: 90%; margin-left: 15px;padding-top: 10px;">
-    <input type="text" class="form-control" name="fileName" (input)="searchEvent($event)" placeholder="Search for user groups" style="width: 88%">
-    <div class="dropdown">
-      <div class="dropdown-content ">
-        <a href="#" >View Resource</a>
-        <a href="#" >Sharing settings</a>
-        <a href="#"  >Edit</a>
-        <a href="#"  >Remove</a>
-      </div>
+    <input type="text" class="form-control search-user" name="fileName" [(ngModel)]="selectedUserGroup" (input)="searchEvent($event)" placeholder="Search for user groups" style="width: 88%">
+    <button class="btn" (click)="addUserGroup()">+</button>
+  </div>
+  <div  *ngIf="showUsers" class="dropdown"  style="margin-left: 15px">
+    <div class="dropdown-content ">
+      <a *ngFor="let user of userGroup" (click)="setUser(user)">{{user.displayName}}</a>
+
     </div>
-    <button class="btn">+</button>
   </div>
 
 
   <div style="padding-top: 10px; margin-left: 15px; color: #9e9e9e">
-    Created by: myUserName
+    Created by: {{userCreatedFile}}
   </div>
 
   <div  style="padding-top: 10px; margin-left: 15px;" >
@@ -35,17 +33,27 @@
     <div class="col-6">
       Public access (with login)
     </div>
-    <select type="text" class="form-control" style="width: 180px"   >
-    <option value="false">None</option>
-    <option value="true">Can view</option>
-    <option value="true">Can edit and view</option>
+    <select type="text" class="form-control" style="width: 180px"  [(ngModel)]="publicAccess" >
+    <option value="--------">None</option>
+    <option value="r-------">Can view</option>
+    <option value="rw------">Can edit and view</option>
+    </select>
+  </div>
+
+  <div *ngFor="let userAccess of addedUser" class="row" style="padding-top: 10px; margin-left: 15px;" >
+    <div class="col-6">
+      {{userAccess.displayName}}
+    </div>
+    <select type="text" class="form-control" style="width: 180px" [(ngModel)]="accessMode"  >
+      <option value="r-------">Can view</option>
+      <option value="rw------" selected>Can edit and view</option>
     </select>
   </div>
 
 
     <div class="my-table">
       <tr> <td><button  type="button" class="btn btn-primary btn-sm"
-                       [disabled]="!isFileName ">Save</button> &nbsp;&nbsp; &nbsp;</td>
+                       (click)="onSaveGroupAccess()">Save</button> &nbsp;&nbsp; &nbsp;</td>
         <td> <button type="button" class="btn btn-default btn-sm" (click)="doCancel()">Cancel</button></td>
       </tr>
     </div>

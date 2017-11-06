@@ -140,7 +140,7 @@ export class UploaderComponent implements OnInit {
     })
 
     setTimeout(()=>{
-      this.addResourceAction.emit("refresh")
+      this.addResourceAction.emit(fileDetails)
       },5000);
 
     this.fileInfo = null;
@@ -167,14 +167,46 @@ export class UploaderComponent implements OnInit {
      formData.append('external', "false" );
      formData.append('attachment', this.isAttached );
 
+    let fileDetails = {
+      created:fullDate,
+      lastUpdated:fullDate,
+      name: this.fileName,
+      href:'',
+      id: '',
+      displayName: this.fileName,
+      publicAccess:'',
+      url: file.name,
+      externalAccess:'',
+      external: this.uploadType,
+      attachment: this.isAttached,
+      contentType:'',
+      lastUpdatedBy:{},
+      access:{
+        read:'',
+        update:'',
+        externalize:'',
+        delete: '',
+        write: '',
+        manage: ''
+      },
+      user: {
+        id: ''
+      },
+      userGroupAccesses: [ ],
+      attributeValues: [ ],
+      translations: [ ],
+      userAccesses: [ ]
+
+    };
+
     this.httpProvider.fileUpload(formData).subscribe(response=>{
       console.log("result from upload :"+response);
 
     });
 
-    setTimeout(
-      this.addResourceAction.emit("refresh")
-      ,5000);
+    // setTimeout(
+       this.addResourceAction.emit(fileDetails)
+    //   ,10000);
 
 
 

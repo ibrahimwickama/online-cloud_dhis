@@ -1,6 +1,12 @@
 
 <div *ngIf="contentToViewGrid.length <= 0" class="empty-list">
-      No available resources
+  <div *ngIf="!(isConnected | async)">
+    Please check your internet connection
+  </div>
+
+  <div *ngIf="(isConnected | async)">
+    <page-loading loadingSize="large" loadingMessage="Loading resources"></page-loading>
+  </div>
 </div>
 
 <div class="container-fluid">

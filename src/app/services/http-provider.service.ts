@@ -29,6 +29,14 @@ export class HttpProviderService {
     )
   }
 
+  getAllUsers(){
+    let url = '../../../api/users.json';
+    return this.httpProvider.get(url).map((response:Response) =>
+        response.json()
+      // console.log("meme :"+response)
+    )
+  }
+
 
   downloadFile(fileId){
     let reqstHeadDon = new Headers({
@@ -75,7 +83,35 @@ export class HttpProviderService {
         console.log("hello the response  :"+response)
       })
 
-}
+  }
+
+
+  saveUserGroupAccess(aceesData,file ){
+    let url = '../../../api/sharing?type=document&id='+file.id;
+    let jsonHeaders = new Headers({ 'Content-Type': 'application/json' });
+
+    delete file.created;
+    delete file.lastUpdated;
+    delete file.lastUpdatedBy;
+    delete file.contentType;
+    delete file.href;
+    delete file.url;
+    delete file.external;
+    delete file.attachment;
+    delete file.attributeValues;
+    delete file.translations;
+    delete file['access'];
+
+    this.options = new RequestOptions({ headers: jsonHeaders });
+    return this.httpProvider.post(url, file, this.options)
+      .map(response =>{
+
+      })
+
+  }
+
+
+
 
 
 

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpProviderService} from "./services/http-provider.service";
 import {Route, Router} from "@angular/router";
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-root',
@@ -27,6 +28,8 @@ export class AppComponent implements OnInit{
   content:any = [];
   fileSetting:any;
 
+
+
   constructor(private httpProvider: HttpProviderService){
 
   }
@@ -35,6 +38,8 @@ export class AppComponent implements OnInit{
     this.checkForContents();
 
   }
+
+
 
 
   checkForContents(){
@@ -79,10 +84,10 @@ export class AppComponent implements OnInit{
   receivingNewResource(event){
     console.log("did Add resource :"+event);
 
-      window.location.reload()
+      //window.location.reload()
 
-    // this.contentToView.push(event);
-    // this.contentToViewBackUp = this.contentToView;
+     this.contentToView.push(event);
+     this.contentToViewBackUp = this.contentToView;
   }
 
 

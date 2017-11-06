@@ -11,11 +11,12 @@ import {ListViewComponent} from "../app/components/list-view/list-view.component
 import {GridViewComponent} from "../app/components/grid-view/grid-view.component";
 import {FormsModule} from "@angular/forms";
 import { SharingSettingsComponent } from './components/sharing-settings/sharing-settings.component';
-import {Router} from "@angular/router";
+import {LoadingPage} from "./components/loading-animation/loading";
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoadingPage,
     GridViewComponent,
     ListViewComponent,
     UploaderComponent,
