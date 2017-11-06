@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Injectable, Input, OnInit, Output} from '@angular/core';
 import {UtilitiesService} from "../../services/utilities.service";
+import {HttpProviderService} from "../../services/http-provider.service";
 
 
 @Component({
@@ -21,7 +22,7 @@ export class ListViewComponent implements OnInit {
   //viewFile:any;
 
 
-  constructor(private utilService: UtilitiesService) { }
+  constructor(private utilService: UtilitiesService, private httpProvider:HttpProviderService) { }
 
   ngOnInit() {
 
@@ -42,7 +43,7 @@ export class ListViewComponent implements OnInit {
   viewOfResource(content){
     //this.viewResource = true;
     //this.viewFile = content;
-    this.viewFile.emit(content);
+    //this.viewFile.emit(content);
   }
 
   getFileIcon(extension){
@@ -66,7 +67,10 @@ export class ListViewComponent implements OnInit {
     this.editFile.emit(file);
   }
 
-  removeResource(){
+  removeResource(data){
+    this.httpProvider.removeFileFromServer(data).subscribe(response=>{
+      console.log("worekd "+response)
+    })
     //this.deletefile.emit(this.fileToView);
   }
 

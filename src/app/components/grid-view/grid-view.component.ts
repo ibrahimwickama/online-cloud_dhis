@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UtilitiesService} from "../../services/utilities.service";
+import {HttpProviderService} from "../../services/http-provider.service";
 
 @Component({
   selector: 'app-grid-view',
@@ -15,7 +16,7 @@ export class GridViewComponent implements OnInit {
 
   icon: string;
 
-  constructor(private utilService: UtilitiesService) { }
+  constructor(private utilService: UtilitiesService, private httpProvider:HttpProviderService) { }
 
   ngOnInit() {
   }
@@ -40,8 +41,10 @@ export class GridViewComponent implements OnInit {
     this.editFile.emit(file);
   }
 
-  removeResource(){
-    //this.deletefile.emit(this.fileToView);
+  removeResource(file){
+    this.httpProvider.removeFileFromServer(file).subscribe(response=>{
+      console.log("worekd "+response)
+    })
   }
 
 

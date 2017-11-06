@@ -1,5 +1,4 @@
 import {Component, ElementRef, EventEmitter, Input, NgModule, OnInit, Output, ViewChild} from '@angular/core';
-import {NgForm} from '@angular/forms';
 import {HttpProviderService} from "../../services/http-provider.service";
 
 
@@ -65,9 +64,23 @@ export class UploaderComponent implements OnInit {
 
   uploadTypeOption(){
     if(this.uploadType){
-      this.saveNewFileResource();
+
+      if(this.fileInfo){
+        this.httpProvider.removeFileFromServer(this.fileInfo).subscribe(response=>{
+          this.saveNewFileResource();
+        })
+      }else{
+        this.saveNewFileResource();
+      }
+
     }else{
-      this.saveNewLinkToResource();
+      if(this.fileInfo){
+        this.httpProvider.removeFileFromServer(this.fileInfo).subscribe(response=>{
+          this.saveNewLinkToResource();
+        })
+      }else{
+        this.saveNewLinkToResource();
+      }
     }
   }
 
@@ -122,11 +135,15 @@ export class UploaderComponent implements OnInit {
 
     };
 
-    this.httpProvider.trialUpload(formData).subscribe(response=>{
+    this.httpProvider.fileUpload(formData).subscribe(response=>{
       console.log("the  response is :"+response);
     })
 
-    this.addResourceAction.emit(fileDetails);
+    setTimeout(()=>{
+      this.addResourceAction.emit("refresh")
+      },5000);
+
+    this.fileInfo = null;
     this.doCancel();
   }
 
@@ -150,51 +167,17 @@ export class UploaderComponent implements OnInit {
      formData.append('external', "false" );
      formData.append('attachment', this.isAttached );
 
-     console.log("file is :"+JSON.stringify(file))
+    this.httpProvider.fileUpload(formData).subscribe(response=>{
+      console.log("result from upload :"+response);
 
-    let fileDetails = {
-      created:fullDate,
-      lastUpdated:fullDate,
-      name: this.fileName,
-      href:'',
-      id: '',
-      displayName: this.fileName,
-      publicAccess:'',
-      url: file.name,
-      externalAccess:'',
-      external: this.uploadType,
-      attachment: this.isAttached,
-      contentType:'',
-      lastUpdatedBy:{},
-      access:{
-        read:'',
-        update:'',
-        externalize:'',
-        delete: '',
-        write: '',
-        manage: ''
-      },
-      user: {
-        id: ''
-      },
-      userGroupAccesses: [ ],
-      attributeValues: [ ],
-      translations: [ ],
-      userAccesses: [ ]
-
-     };
-
-    this.fetchedData.push(fileDetails)
-
-    let finaleObj = {documents: this.fetchedData};
-
-    this.httpProvider.trialUpload(formData).subscribe(response=>{
-      console.log("result from upload :"+response)
     });
 
-    this.addResourceAction.emit(fileDetails);
-    console.log("value..."+JSON.stringify(fileDetails))
-    this.fileInfo = null;
+    setTimeout(
+      this.addResourceAction.emit("refresh")
+      ,5000);
+
+
+
     this.doCancel();
 
   }
@@ -202,28 +185,11 @@ export class UploaderComponent implements OnInit {
 
   gettingName(event){
     let val = event.target.value;
-    //console.log(val)
     if(val && val.trim() != ''){
       this.isFileName = true;
     }else{
-
       this.isFileName = false;
     }
-  }
-
-
-  createDataStoreObjKey() {
-    let formatter = new Intl.DateTimeFormat("fr", { month: "short" }),
-      month = formatter.format(new Date()),
-      text = '',
-      possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-
-    for (let i = 0; i < 3; i++) {
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-
-    return month.slice(0, -1).toUpperCase().concat('_', text);
-
   }
 
 

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpProviderService} from "./services/http-provider.service";
+import {Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -76,8 +77,12 @@ export class AppComponent implements OnInit{
   }
 
   receivingNewResource(event){
-    this.contentToView.push(event);
-    this.contentToViewBackUp = this.contentToView;
+    console.log("did Add resource :"+event);
+
+      window.location.reload()
+
+    // this.contentToView.push(event);
+    // this.contentToViewBackUp = this.contentToView;
   }
 
 
