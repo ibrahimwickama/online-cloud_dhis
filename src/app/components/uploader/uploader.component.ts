@@ -139,9 +139,9 @@ export class UploaderComponent implements OnInit {
       console.log("the  response is :"+response);
     })
 
-    setTimeout(()=>{
-      this.addResourceAction.emit(fileDetails)
-      },5000);
+    // setTimeout(()=>{
+    //   this.addResourceAction.emit(fileDetails)
+    //   },5000);
 
     this.fileInfo = null;
     this.doCancel();
@@ -205,7 +205,7 @@ export class UploaderComponent implements OnInit {
     });
 
     // setTimeout(
-       this.addResourceAction.emit(fileDetails)
+      // this.addResourceAction.emit(fileDetails)
     //   ,10000);
 
 

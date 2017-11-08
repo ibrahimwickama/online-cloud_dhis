@@ -13,11 +13,16 @@ export class HttpProviderService {
 
   }
 
+  private handleError (error: Response) {
+    return Observable.throw(error || "Server Error");
+  }
+
   getResourceFiles() {
     let url = '../../../api/documents.json?fields=*';
     // let url = 'http://localhost:8080/api/documents.json';
     return this.httpProvider.get(url)
-        .map((response: Response) => response.json());
+        .map((response: Response) => response.json())
+      .catch( this.handleError );
 
   }
 
@@ -26,7 +31,7 @@ export class HttpProviderService {
      return this.httpProvider.get(url).map((response:Response) =>
        response.json()
        // console.log("meme :"+response)
-    )
+    ).catch( this.handleError );
   }
 
   getAllUsers(){
@@ -34,7 +39,7 @@ export class HttpProviderService {
     return this.httpProvider.get(url).map((response:Response) =>
         response.json()
       // console.log("meme :"+response)
-    )
+    ).catch( this.handleError );
   }
 
 
@@ -53,7 +58,7 @@ export class HttpProviderService {
       .map((response: Response) => {
       response.json();
       console.log("the res :"+response)
-    });;
+    }).catch( this.handleError );
   }
 
 
@@ -62,7 +67,7 @@ export class HttpProviderService {
     let url = '../../../api/documents/'+data.id;
      return this.httpProvider.delete(url).map((response => {
 
-    }))
+    })).catch( this.handleError );
   }
 
 
@@ -81,7 +86,7 @@ export class HttpProviderService {
     return this.httpProvider.post(url4, file, this.options)
       .map(response =>{
         console.log("hello the response  :"+response)
-      })
+      }).catch( this.handleError );
 
   }
 
@@ -106,7 +111,7 @@ export class HttpProviderService {
     return this.httpProvider.post(url, file, this.options)
       .map(response =>{
 
-      })
+      }).catch( this.handleError );
 
   }
 

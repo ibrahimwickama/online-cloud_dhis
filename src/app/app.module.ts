@@ -12,6 +12,7 @@ import {GridViewComponent} from "../app/components/grid-view/grid-view.component
 import {FormsModule} from "@angular/forms";
 import { SharingSettingsComponent } from './components/sharing-settings/sharing-settings.component';
 import {LoadingPage} from "./components/loading-animation/loading";
+import {ManifestServiceService} from "./services/manifest-service.service";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import {LoadingPage} from "./components/loading-animation/loading";
   imports: [
     BrowserModule, MenuModule, FormsModule
   ],
-  providers: [HttpProviderService,UtilitiesService],
+  providers: [HttpProviderService,UtilitiesService, ManifestServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

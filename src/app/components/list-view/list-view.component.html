@@ -4,9 +4,9 @@
   Please check your internet connection
   </div>
 
-  <div *ngIf="(isConnected | async)">
-  <page-loading loadingSize="large" loadingMessage="Loading resources"></page-loading>
-  </div>
+  <!--<div *ngIf="(isConnected | async)">-->
+  <!--<page-loading loadingSize="large" loadingMessage="Loading resources"></page-loading>-->
+  <!--</div>-->
 </div>
 
 <div class="card col-md-6  " style="margin-right: 4%; margin-left: 25%" *ngIf="contentToViewList.length > 0">
@@ -28,7 +28,7 @@
 
        <td >{{content.displayName}}</td>
       <td>{{content.lastUpdated.split("T")[0]}}</td>
-      <td (click)="viewOptions($event)">
+      <td >
          <span>
         <img src="./assets/fileTypes/option-dots.png" alt="avatar" style="height: 12px">
         </span>

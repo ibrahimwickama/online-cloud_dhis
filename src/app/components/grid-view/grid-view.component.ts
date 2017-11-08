@@ -37,7 +37,7 @@ export class GridViewComponent implements OnInit {
 
 
   getFileIcon(extension){
-    let link = this.utilService.getResourceIcon(extension);
+    let link = this.utilService.getResourceIconForGridView(extension);
     return link;
   }
 
