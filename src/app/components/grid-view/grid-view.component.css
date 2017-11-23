@@ -18,12 +18,7 @@
   margin-left: 15px;
 }
 
-.card-holder-grid{
-
-}
-
-
-.interpretations-columns {
+.my-columns {
   -webkit-column-count: 2;
   column-count: 3;
   -webkit-column-gap: 1.25rem;
@@ -33,16 +28,7 @@
   height: auto;
   /*overflow: visible;*/
 }
-.interpretations-columns .card,
-.interpretations-columns .interpretation-search {
-  display: inline-block;
-  width: 100%;
-}
 
-.interpretation-search {
-  margin-bottom: 10px;
-  margin-left: 25%;
-}
 
 .interpretation-card {
   margin-bottom: 10px;
@@ -80,27 +66,6 @@ hr.style10 {
 }
 
 
-
-.wrapper{
-  display: grid;
-  grid-template-columns: 100px 100px 100px 100px 100px   100px 100px 100px 100px 100px ;
-  grid-gap: 60px;
-  background-color: #f9f9f9;
-  position: inherit;
-  /*word-wrap: break-word;*/
-
-
-}
-
-.box {
-  background-color: #444;
-  color: #fff;
-  border-radius: 5px;
-  padding: 20px;
-  font-size: 150%;
-}
-
-
 .empty-list{
   text-align: center;
   color: #999999;
@@ -120,15 +85,7 @@ a:hover{
   text-decoration: none;
 }
 
-/* Dropdown Button */
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
+
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
@@ -188,42 +145,44 @@ td:hover .dropdown-content{
 
 
 
+
+/* ---------------------------------------------------
+    Card columns arrangements due to screen Res
+----------------------------------------------------- */
+
 @media (min-width: 200px) and  (max-width: 345px){
-  .wrapper {
-    display: grid;
-    grid-template-columns: 100px;
-    grid-gap: 50px;
-    background-color: #fff;
-    position: inherit;
+  .my-columns {
+    -webkit-column-count: 2;
+    column-count: 1;
+    -webkit-column-gap: 1.25rem;
+    column-gap: 1.25rem;
   }
 }
 
 @media (min-width: 350px) and (max-width: 700px) {
-  .wrapper {
-    display: grid;
-    grid-template-columns: 100px 100px;
-    grid-gap: 50px;
-    background-color: #fff;
-    position: inherit;
+  .my-columns {
+    -webkit-column-count: 2;
+    column-count: 1;
+    -webkit-column-gap: 1.25rem;
+    column-gap: 1.25rem;
   }
 }
 
 @media (min-width: 750px) and (max-width: 950px) {
-  .wrapper {
-    display: grid;
-    grid-template-columns: 100px 100px 100px 100px;
-    grid-gap: 50px;
-    background-color: #fff;
-    position: inherit;
+  .my-columns {
+    -webkit-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 1.25rem;
+    column-gap: 2.25rem;
   }
 }
 
 @media (min-width: 1000px) and (max-width: 1800px) {
-  .wrapper {
-    display: grid;
-    grid-template-columns: 100px 100px 100px 100px 100px;
-    grid-gap: 50px;
-    background-color: #fff;
-    position: inherit;
+  .my-columns {
+    -webkit-column-count: 3;
+    column-count: 3;
+    -webkit-column-gap: 1.25rem;
+    column-gap: 2.20rem;
   }
 }
+

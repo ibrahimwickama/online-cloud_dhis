@@ -12,6 +12,10 @@
   border-radius: 5px;
 }
 
+.mySearch{
+  margin-left: 34%;
+}
+
 .btn-circle {
   width: 60px;
   height: 60px;
@@ -62,6 +66,12 @@ a:hover{
   width: 75%;
   margin-left: 15%;
   padding: 0px;
+}
+
+.appIcon{
+  width: 80px;
+  height: 80px;
+  padding-top: 5px;
 }
 
 .md-divide{
@@ -137,6 +147,40 @@ hr.style13 {
     margin-left: 70%;
   }
 
+
+  .myContainer{
+    width: 100%;
+    /*padding: 2px;*/
+    margin-left: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+
+  }
+
+  .appIcon{
+    width: 40px;
+    height: 40px;
+    padding-top: 3px;
+  }
+
+  .front-label{
+    font-size: 20px;
+    width: 90%;
+    margin-left: 5%;
+    padding: 0px;
+  }
+
+  .mySearch{
+    margin-left: 9%;
+  }
+
+  .option-view-list{
+    border-radius: 5px;
+    background-color: #ECF0F1;
+    margin-left: 25%;
+    margin-top: 20px;
+  }
+
 }
 
 @media (min-width: 350px) and (max-width: 700px) {
@@ -154,6 +198,39 @@ hr.style13 {
     margin-left: 78%;
   }
 
+  .myContainer{
+    width: 100%;
+    /*padding: 2px;*/
+    margin-left: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+
+  }
+
+  .appIcon{
+    width: 40px;
+    height: 40px;
+    padding-top: 3px;
+  }
+
+  .front-label{
+    font-size: 20px;
+    width: 90%;
+    margin-left: 5%;
+    padding: 0px;
+  }
+
+  .mySearch{
+    margin-left: 9%;
+  }
+
+  .option-view-list{
+    border-radius: 5px;
+    background-color: #ECF0F1;
+    margin-left: 25%;
+    margin-top: 20px;
+  }
+
 
 }
 
@@ -169,6 +246,39 @@ hr.style13 {
     border-radius: 30px;
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2);
     margin-left: 85%;
+  }
+
+  .myContainer{
+    width: 100%;
+    /*padding: 2px;*/
+    margin-left: 10px ;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+
+  }
+
+  .appIcon{
+    width: 40px;
+    height: 40px;
+    padding-top: 3px;
+  }
+
+  .front-label{
+    font-size: 20px;
+    width: 90%;
+    margin-left: 5%;
+    padding: 0px;
+  }
+
+  .mySearch{
+    margin-left: 9%;
+  }
+
+  .option-view-list{
+    border-radius: 5px;
+    background-color: #ECF0F1;
+    margin-left: 25%;
+    margin-top: 20px;
   }
 }
 

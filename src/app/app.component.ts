@@ -83,10 +83,6 @@ export class AppComponent implements OnInit{
 
   receivingNewResource(event){
     console.log("did Add resource :"+event);
-
-      //window.location.reload()
-     // this.contentToView.push(event);
-     // this.contentToViewBackUp = this.contentToView;
   }
 
 

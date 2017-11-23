@@ -4,22 +4,23 @@
 
 <div class="front-label" style="margin-top: 50px">
   <span >
-    <img src="./assets/fileTypes/box-hisp.png" alt="Avatar" style="width: 80px; height: 80px; padding-top: 5px"></span>
+    <img src="./assets/fileTypes/box-hisp.png" alt="Avatar" class="appIcon"></span>
   <label>Interactive Archive</label>
   <a class="btn-lg" href="#openHelpModal" ><span class="glyphicon glyphicon-question-sign"></span></a>
   <hr class="style13"></div>
 
 
-  <div class="col-md-4 col-md-offset-5" style="margin-left: 34%">
+  <div class="col-md-4 col-md-offset-5 mySearch" >
     <input type="text" placeholder="Search" class="form-control" (input)="getFilteredList($event)">
   </div>
 
   <div class="btn-group option-view-list">
-    <a (click)="displayView('list')"id="list" class="btn btn-default btn-sm"><img src="./assets/listing-option.png" style="width: 16px;height: 16px">
+    <a (click)="displayView('list')"id="list" class="btn btn-default btn-sm">
+      <img src="./assets/listing-option.png" style="width: 16px;height: 16px">
       &nbsp;&nbsp;List</a>
       <a (click)="displayView('grid')" id="grid" class="btn btn-default btn-sm">
         <img src="./assets/menu.png" style="width: 16px;height: 16px" >&nbsp;&nbsp;Grid</a>
-</div>
+  </div>
 
     <div class="myContainer">
 

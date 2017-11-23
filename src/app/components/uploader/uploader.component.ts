@@ -203,13 +203,6 @@ export class UploaderComponent implements OnInit {
       console.log("result from upload :"+response);
 
     });
-
-    // setTimeout(
-      // this.addResourceAction.emit(fileDetails)
-    //   ,10000);
-
-
-
     this.doCancel();
 
   }
