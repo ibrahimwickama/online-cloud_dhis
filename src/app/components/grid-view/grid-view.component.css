@@ -6,7 +6,10 @@
   border-radius: 5px; /* 5px rounded corners */
   /*margin: 15px;*/
   font-size: 15px;
-  overflow: visible;
+  margin-bottom: 10px;
+  padding: 10px;
+  -webkit-column-break-inside: avoid;
+  display: flex;
 
 }
 
@@ -26,14 +29,13 @@
   margin-left: 20%;
   margin-right: 20%;
   height: auto;
+  -webkit-column-break-inside: avoid;
+  padding-bottom: 30px;
+
   /*overflow: visible;*/
 }
 
 
-.interpretation-card {
-  margin-bottom: 10px;
-  padding: 10px;
-}
 
 .my-card-img{
   margin-top: 1px;
